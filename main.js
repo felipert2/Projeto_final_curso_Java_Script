@@ -34,20 +34,28 @@ class produtoCustomizado {
     }
 }
 
-// Função que é chamada quando o usuário realiza alguma ação (por exemplo, clicar em um botão)
+const produtos = [];
+
 function acaoDoUsuario() {
     let cor = prompt("Digite a cor do produto:");
     let tamanho = prompt("Digite o tamanho do produto:");
-    let modelo = prompt("Modelo Masculino ou Feminino");
+    let modelo = prompt("Digite o modelo do produto:");
 
-    const produtoPersonalizado = new produtoCustomizado(cor, tamanho, modelo);
-    
-    // Invocando o método descreverProduto()
-    produtoPersonalizado.descreverProduto();
+    const novoProduto = new produtoCustomizado(cor, tamanho, modelo);
+    produtos.push(novoProduto);
+
+    novoProduto.descreverProduto();
 }
 
-// Chamar a função de ação do usuário quando necessário
+function exibirProdutosAdicionados() {
+    console.log("Produtos Adicionados:");
+    for (const produto of produtos) {
+        console.log("-------------------------");
+        produto.descreverProduto();
+    }
+}
+
 acaoDoUsuario();
 
 
-
+exibirProdutosAdicionados();
